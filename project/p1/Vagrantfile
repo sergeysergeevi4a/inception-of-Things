@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# master config
+MASTER_NODE_NAME = 'Jleslie'
+MASTER_NODE_HOSTNAME = 'Server'
+MASTER_NODE_IP = '192.168.56.110'
+
+# worker config
+WORKER_NODE_NAME = 'Caugusta'
+WORKER_NODE_HOSTNAME = 'ServerWorker'
+WORKER_NODE_IP = '192.168.56.111'
+
+# machine config
+MEM = 512
+CPU = 1
+
+Vagrant.configure("2") do |config|
+	config.vm.box = "bento/debian-11"
+	config.vm.provider "virtualbox" do |v|
+		v.memory = MEM
+		v.cpus = CPU
+	end
+
+	config.vm.define MASTER_NODE_NAME do |master|
+		master.vm.hostname = MASTER_NODE_HOSTNAME
+		master.vm.network :private_network, ip: MASTER_NODE_IP
+		master.vm.provider "virtualbox" do |v|
+			v.name = MASTER_NODE_NAME
+		end
+	end
+
+	config.vm.define WORKER_NODE_NAME do |worker|
+		worker.vm.hostname = WORKER_NODE_HOSTNAME
+		worker.vm.network :private_network, ip: WORKER_NODE_IP 	
+		worker.vm.provider "virtualbox" do |v|
+			v.name = WORKER_NODE_NAME 
+		end
+	end
+end
