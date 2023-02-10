@@ -44,9 +44,9 @@ echo "Gitlab password: " $(kubectl -n gitlab get secret gitlab-gitlab-initial-ro
 echo \
 " ----> Commandes suivantes : Create first repo with the UI
 cd /sync
-git clone https://github.com/Sjorinn/pchambon_argocd.git pchambon_argocd
-cd pchambon_argocd
-git remote set-url origin http://gitlab.192.168.56.110.nip.io:8080/root/pchambon_argocd.git
+git clone https://github.com/Sjorinn/kferterb_argocd.git kferterb_argocd
+cd kferterb_argocd
+git remote set-url origin http://gitlab.192.168.56.110.nip.io:8080/root/kferterb_argocd.git
 ---> don't forget to apply wilsapp after creating and updating the repo
 kubectl apply -n argocd -f /sync/confs/wilsApp.yaml
 Argocd password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
