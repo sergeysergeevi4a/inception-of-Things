@@ -7,7 +7,7 @@ MASTER_NODE_HOSTNAME = 'Server'
 MASTER_NODE_IP = '192.168.56.110'
 
 # worker config
-WORKER_NODE_NAME = 'Caugusta'
+WORKER_NODE_NAME = 'Einterdi'
 WORKER_NODE_HOSTNAME = 'ServerWorker'
 WORKER_NODE_IP = '192.168.56.111'
 
